@@ -67,6 +67,11 @@ class MemoryCardGame {
             this.flipCount.innerText = this.totalClicks;
             card.classList.add('visible');
             // should we check for a match or not
+            if(this.cardToCheck) {
+                this.checkForCardMatch(card);
+            } else {
+                this.cardToCheck = card;
+            }
         }
     }
 
