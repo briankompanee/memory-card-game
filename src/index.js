@@ -74,7 +74,7 @@ class MemoryCardGame {
             }
         }
     }
-    
+
     checkForCardMatch(card) {
         // if the card clicked src is = src of previous card clicked
         if(this.getCardType(card) === this.getCardType(this.cardToCheck))
@@ -141,8 +141,6 @@ class MemoryCardGame {
         return !this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck;
     }
 }
-}
-
 
 /* Event listener - to start game on DOM load
     If DOM is still loading call "ready" function when DOM is loaded
@@ -160,6 +158,8 @@ function ready() {
     let overlays = Array.from(document.getElementsByClassName('overlay-text'));
     // create and array for card elements
     let cards = Array.from(document.getElementsByClassName('card'));
+    // create game object add cards and set timer
+    let game = new MemoryCardGame(90, cards);
 
   
     //for each item in the overlay call event listener click function
