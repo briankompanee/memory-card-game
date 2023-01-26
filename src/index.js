@@ -11,6 +11,26 @@ class MemoryCardGame {
         this.timer = document.getElementById('timeRemaining')
         this.flipCount = document.getElementById('flips');
     }
+
+    startGame() {
+        this.totalClicks = 0;
+        this.timeRemaining = this.totalTime;
+        this.cardToCheck = null;
+        this.matchedCards = [];
+        // Animation is happening, card has been clicked & matched, or cardtoCheck is not null
+        this.busy = true;
+    }
+    canFlipCard(card) {
+        /* 
+        boolean to check if game is busy/started, card is not matched, 
+        card is not the card to check if matched
+        then return true so card can be flipped
+        gives time for shuffle to run
+        all statements should be false to return true, then user can flip the card
+        */
+        return !this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck;
+    }
+}
 }
 
 
