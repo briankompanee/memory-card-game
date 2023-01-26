@@ -19,6 +19,15 @@ class MemoryCardGame {
         this.matchedCards = [];
         // Animation is happening, card has been clicked & matched, or cardtoCheck is not null
         this.busy = true;
+        // wait 500 milisecs before starting these functions, smoother transition for game over/start game
+        setTimeout(() => {
+            this.shuffleCards(this.cardsArray);
+            this.countdown = this.startCountdown();
+            this.busy = false;
+        }, 500)
+        this.hideCards();
+        this.timer.innerText = this.timeRemaining;
+        this.flipCount.innerText = this.totalClicks;
     }
 
     flipCard(card) {
