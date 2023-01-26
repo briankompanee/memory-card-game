@@ -20,6 +20,22 @@ class MemoryCardGame {
         // Animation is happening, card has been clicked & matched, or cardtoCheck is not null
         this.busy = true;
     }
+
+    flipCard(card) {
+        if(this.canFlipCard(card)) {
+            // update flip counter
+            this.totalClicks++;
+            this.flipCount.innerText = this.totalClicks;
+            card.classList.add('visible');
+
+            if(this.cardToCheck) {
+                this.checkForCardMatch(card);
+            } else {
+                this.cardToCheck = card;
+            }
+        }
+    }
+    
     canFlipCard(card) {
         /* 
         boolean to check if game is busy/started, card is not matched, 
