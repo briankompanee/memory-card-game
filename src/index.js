@@ -30,6 +30,16 @@ class MemoryCardGame {
         this.flipCount.innerText = this.totalClicks;
     }
 
+    startCountdown() {
+        // Calls interval after every 1000 milisecs
+        return setInterval(() => {
+            this.timeRemaining--;
+            this.timer.innerText = this.timeRemaining;
+            if(this.timeRemaining === 0)
+                this.gameOver();
+        }, 1000);
+    }
+
     hideCards() {
         // Resets Cards for new game by clearing classes
         this.cardsArray.forEach(card => {
