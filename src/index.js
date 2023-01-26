@@ -30,6 +30,14 @@ class MemoryCardGame {
         this.flipCount.innerText = this.totalClicks;
     }
 
+    hideCards() {
+        // Resets Cards for new game by clearing classes
+        this.cardsArray.forEach(card => {
+            card.classList.remove('visible');
+            card.classList.remove('matched');
+        });
+    }
+
     flipCard(card) {
         if(this.canFlipCard(card)) {
             // update flip counter
