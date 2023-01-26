@@ -147,3 +147,14 @@ h3 {
     transform: rotate(30deg)
   }
 }
+
+@keyframes overlay-grow {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+  }
+  to {
+    background-color: rgba(0, 0, 0, .8);
+    font-size: 4em;
+  }
+}
