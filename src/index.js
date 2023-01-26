@@ -1,5 +1,19 @@
 import "./scss/styles.scss"
 
+class MemoryCardGame {
+    // Set properties of global obj
+    constructor(totalTime, cards) {
+        // statically set
+        this.cardsArray = cards;
+        this.totalTime = totalTime;
+        // dynamically set timer and flipcount
+        this.timeRemaining = totalTime;
+        this.timer = document.getElementById('timeRemaining')
+        this.flipCount = document.getElementById('flips');
+    }
+}
+
+
 /* 
 Event listener - to start game on DOM load
 If DOM is still loading call "ready" function when DOM is loaded
