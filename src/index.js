@@ -48,6 +48,12 @@ class MemoryCardGame {
         }
     }
 
+    gameOver() {
+        // stop countdown and show gameOverText
+        clearInterval(this.countdown);
+        document.getElementById('gameOverText').classList.add('visible');
+    }
+
     /* Fisher-Yates Shuffle Algorithm
         Algo to shuffle array lenght of array - 1
         loop backwards from last item in the array
