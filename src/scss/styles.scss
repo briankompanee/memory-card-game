@@ -111,3 +111,27 @@ h3 {
   border-color:  #7fc3bb;
   transform: rotateY(180deg);
 }
+
+.overlay-text {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fcba07;
+  transition: background-color 500ms, font-size 500ms;
+
+  &.visible {
+    display: flex;
+    animation: overlay-grow 500ms forwards;
+  }
+}
+
+.overlay-text-small {
+  font-size: .3em;
+}
