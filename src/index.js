@@ -74,6 +74,39 @@ class MemoryCardGame {
             }
         }
     }
+    
+    checkForCardMatch(card) {
+        // if the card clicked src is = src of previous card clicked
+        if(this.getCardType(card) === this.getCardType(this.cardToCheck))
+            this.cardMatch(card, this.cardToCheck);
+        else 
+            this.cardMismatch(card, this.cardToCheck);
+
+        this.cardToCheck = null;
+    }
+
+    cardMatch(card1, card2) {
+        // add cards to matchedCards array
+        this.matchedCards.push(card1);
+        this.matchedCards.push(card2);
+        // add match class to cards
+        card1.classList.add('matched');
+        card2.classList.add('matched');
+        // check for winner - if length of matched cards array is = to the length of cards array 
+        // then all cards are matched and there is a winner
+        if(this.matchedCards.length === this.cardsArray.length)
+            this.winner();
+    }
+
+    cardMismatch(card1, card2) {
+        this.busy = true;
+        // set timeout so user has 1 sec to see the mismatched card for better game play
+        setTimeout(() => {
+            card1.classList.remove('visible');
+            card2.classList.remove('visible');
+            this.busy = false;
+        }, 1000);
+    }
 
     /* Fisher-Yates Shuffle Algorithm
         Algo to shuffle array lenght of array - 1
