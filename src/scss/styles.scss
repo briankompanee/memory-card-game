@@ -69,3 +69,45 @@ h3 {
   -webkit-backface-visibility:hidden;
   backface-visibility: hidden;
 }
+
+.card.visible .card-back {
+  transform: rotateY(-180deg); 
+}
+
+.card.visible .card-front {
+  transform: rotateY(0); 
+}
+
+.card.matched .card-front .card-value {
+  animation: dance 1s linear infinite 500ms;
+}
+
+.card-back {
+  background-color: #36cfe6;
+  border-color: #fcba07;
+  transform: rotateY(0); 
+}
+
+.star {
+  width: 100px;
+  align-self: flex;
+  transition: transform 100ms ease-in-out;
+  transform: translateY(-10px);
+}
+
+.card-value {
+  width: 125px;
+  position: relative;
+  transition: transform 100ms ease-in-out;
+  transform: scale(.9);
+}
+
+.card-front:hover .card-value {
+  transform: scale(1);
+}
+
+.card-front {
+  background-color: #ffffff;
+  border-color:  #7fc3bb;
+  transform: rotateY(180deg);
+}
