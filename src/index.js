@@ -40,6 +40,18 @@ class MemoryCardGame {
         }, 1000);
     }
 
+    gameOver() {
+        // stop countdown and show gameOverText
+        clearInterval(this.countdown);
+        document.getElementById('gameOverText').classList.add('visible');
+    }
+
+    winner() {
+        // stop countdown and show winnerText
+        clearInterval(this.countdown);
+        document.getElementById('winnerText').classList.add('visible');
+    }
+
     hideCards() {
         // Resets Cards for new game by clearing classes
         this.cardsArray.forEach(card => {
@@ -56,12 +68,6 @@ class MemoryCardGame {
             card.classList.add('visible');
             // should we check for a match or not
         }
-    }
-
-    gameOver() {
-        // stop countdown and show gameOverText
-        clearInterval(this.countdown);
-        document.getElementById('gameOverText').classList.add('visible');
     }
 
     /* Fisher-Yates Shuffle Algorithm
