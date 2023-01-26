@@ -27,22 +27,34 @@ class MemoryCardGame {
             this.totalClicks++;
             this.flipCount.innerText = this.totalClicks;
             card.classList.add('visible');
-
-            if(this.cardToCheck) {
-                this.checkForCardMatch(card);
-            } else {
-                this.cardToCheck = card;
-            }
+            // should we check for a match or not
         }
     }
-    
+
+    /* Fisher-Yates Shuffle Algorithm
+        Algo to shuffle array lenght of array - 1
+        loop backwards from last item in the array
+        for each item in array create a random integer
+        random int is <= 0 
+        exchange the random int with the current item
+    */
+    shuffleCards(cardsArray) { 
+        for (let i = cardsArray.length - 1; i > 0; i--) {
+            // creates random float between 0 and 1 (not 1 itself) and rounds the number down
+            let randomIndex = Math.floor(Math.random() * (i + 1));
+            // use order from style css grid property 
+            cardsArray[randomIndex].style.order = i;
+            // takes random item in card list and swaps css grid order
+            cardsArray[i].style.order = randomIndex;
+        }
+    }
+
     canFlipCard(card) {
-        /* 
-        boolean to check if game is busy/started, card is not matched, 
-        card is not the card to check if matched
-        then return true so card can be flipped
-        gives time for shuffle to run
-        all statements should be false to return true, then user can flip the card
+        /* Boolean to check if game is busy/started, card is not matched, 
+            card is not the card to check if matched
+            then return true so card can be flipped
+            gives time for shuffle to run
+            all statements should be false to return true, then user can flip the card
         */
         return !this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck;
     }
@@ -50,10 +62,9 @@ class MemoryCardGame {
 }
 
 
-/* 
-Event listener - to start game on DOM load
-If DOM is still loading call "ready" function when DOM is loaded
-If not then page is loaded and call "ready" function
+/* Event listener - to start game on DOM load
+    If DOM is still loading call "ready" function when DOM is loaded
+    If not then page is loaded and call "ready" function
 */
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
@@ -75,7 +86,7 @@ function ready() {
             // remove visible class
             overlay.classList.remove('visible');
             // call start the game function
-            // game.startGame();
+            game.startGame();
         });
     });
 
