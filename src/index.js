@@ -1,3 +1,5 @@
+import "./scss/styles.scss"
+
 /* 
 Event listener - to start game on DOM load
 If DOM is still loading call "ready" function when DOM is loaded
