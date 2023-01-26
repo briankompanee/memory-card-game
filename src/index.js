@@ -158,7 +158,7 @@ function ready() {
     let overlays = Array.from(document.getElementsByClassName('overlay-text'));
     // create and array for card elements
     let cards = Array.from(document.getElementsByClassName('card'));
-    // create game object add cards and set timer
+    // call new game object load cards and set timer
     let game = new MemoryCardGame(90, cards);
 
   
