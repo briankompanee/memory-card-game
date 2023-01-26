@@ -93,6 +93,11 @@ class MemoryCardGame {
         }
     }
 
+    // Get the card image src full name
+    getCardType(card) {
+        return card.getElementsByClassName('card-value')[0].src;
+    }
+
     canFlipCard(card) {
         /* Boolean to check if game is busy/started, card is not matched, 
             card is not the card to check if matched
